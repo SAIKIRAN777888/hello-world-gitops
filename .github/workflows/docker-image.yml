@@ -67,18 +67,18 @@ jobs:
           terraform plan -no-color -input=false
         continue-on-error: true
 
-      - name: Terraform rm
-        id: rm
-        run: |
-          cd terraform_with_ALB
-          terraform state rm aws_ecs_task_definition.node-main
-        continue-on-error: true
+      # - name: Terraform rm
+      #   id: rm
+      #   run: |
+      #     cd terraform_with_ALB
+      #     terraform state rm aws_ecs_task_definition.node-main
+      #   continue-on-error: true
 
       - name: Terraform Apply
         run: |
           cd terraform_with_ALB
           terraform apply -auto-approve -input=false
-      # - name: Terraform destroy
-      #   run: |
-      #     cd terraform_with_ALB
-      #     terraform destroy -auto-approve -input=false
+      - name: Terraform destroy
+        run: |
+          cd terraform_with_ALB
+          terraform destroy -auto-approve -input=false
