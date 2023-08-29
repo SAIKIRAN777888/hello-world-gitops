@@ -37,7 +37,7 @@ jobs:
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: node
-          IMAGE_TAG: ${{ github.sha }}
+          IMAGE_TAG: 6d8401b823de3bbf9c048eff745b18d26cb3860b
         run: |
           echo $IMAGE_TAG
           sed -i "s|<changeme>|$ECR_REPOSITORY|g" ./terraform_with_ALB/ecs-task-definition.sh
